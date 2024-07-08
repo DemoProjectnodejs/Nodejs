@@ -25,5 +25,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - name: Install supertest, mocha, chai
-        run: npm i -g -D supertest mocha chai
+      - name: Build
+        run: |
+          npm install
+          grunt
