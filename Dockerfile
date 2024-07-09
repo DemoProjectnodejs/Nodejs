@@ -1,18 +1,19 @@
 # Fetching the minified node image on apline linux
-From node:slim
+From node:16.20.1
 
 # Setting up the workdirectory
 WORKDIR /app
 
 # Copying all the files in our project
-COPY . .
+COPY package.json ./
 
 # Installing dependecies
 RUN npm install
-
-# Starting our application
-CMD [ "node", "server.js" ]
-
+COPY . .
 # Exposing server port
-Expose 443
+EXPOSE 5000
+# Starting our application
+CMD ["npm","run","start"]
+
+
 
