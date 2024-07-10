@@ -1,8 +1,14 @@
 name: CICD
 
 on:
-  push:
-    branches: [deploy-to-ecs]
+   push:
+    branches:
+        - main
+        - dev-*
+  pullrequest:
+    branches:
+        - main
+        - dev-*
 
 jobs:
   build-and-deploy:
